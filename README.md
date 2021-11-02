@@ -1,9 +1,9 @@
-# fruit dataset utilities
+# Fruit dataset utilities
 
 Fruit 360 is a dataset with 90380 images of 131 fruits and vegetables (https://www.kaggle.com/moltean/fruits).
 Images are 100 pixel by 100 pixel and are RGB (color) images (3 values for each pixel). This repo contains 
 utilities for creating feature vectors for the images and selecting a subset of the images for analysis. More info
-about the dataset can be found in 'Fruit recognition from images using deep learning' paper (https://arxiv.org/abs/1712.00580). 
+about the dataset can be found in 'Fruit recognition from images using deep learning' paper by H. Muresan and M. Oltean (https://arxiv.org/abs/1712.00580).
 
 # Create and configure your virtual environment
 
