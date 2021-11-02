@@ -4,6 +4,21 @@ Fruit 360 is a dataset with 90380 images of 131 fruits and vegetables (https://w
 Images are 100 pixel by 100 pixel and are RGB (color) images (3 values for each pixel). This repo contains 
 utilities for creating feature vectors for the images and selecting a subset of the images for analysis.
 
+# Create and configure your virtual environment
+
+1. Create a virtual environment via the following command:
+```
+python3 -m venv venv
+```
+2. Activate your virtual environment via the following command:
+```
+. ./venv/bin/activate
+```
+3. Install the necessary packages in your virtual environment via the following command:
+```
+pip3 install -r requirements.txt
+```
+
 # Creating feature vectors for images
 
 1. Download the dataset by going to https://www.kaggle.com/moltean/fruits and clicking on Download button on top
