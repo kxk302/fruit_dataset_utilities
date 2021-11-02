@@ -7,7 +7,10 @@ utilities for creating feature vectors for the images and selecting a subset of 
 # Creating feature vectors for images
 
 1. Download the dataset by going to https://www.kaggle.com/moltean/fruits and clicking on Download button on top
-2. Extract the downloaded zip file via 'unzip archive.zip'
+2. Extract the downloaded zip file via the following command:
+```
+unzip archive.zip
+```
 3. Training data, Test data and a useful readme file can found in 'fruit-360_dataset/fruit-360' folder
 4. There are folders containing jpeg images for each fruit/vegetable under Training/Test folders
 5. To remove the whitespace in folder names, run the following commad in Training and Test folders 
@@ -35,16 +38,18 @@ python3 feature_vector.py -d Test -f testing.tsv -l labels.json
 # Select a subset of images for analysis
 
 Create a labels_subset.json file by copy labels.json file. labels.json file specifies 131 fruits/vegetables.
-Creating the feature vector for all images of 131 fruits/vegetables results in very large feature vector files.
-You can specify the fruits/vegetables you are interested in labels_subset.json, and run the following commands 
-to extract feature vector of only those fruits/vegetables (much smaller file sizes)
+Creating the feature vector for all images of 131 fruits/vegetables results in very large feature vector files 
+(7GB for training and 2.5 GB for testing). You can specify only the fruits/vegetables you are interested in 
+labels_subset.json, and run the following commands to extract feature vector for only those fruits/vegetables. 
+For the provided labels_subset.json, which includes 20 fruits/vegetables, file sizes dropped to 1.1 GB and 375 MB 
+for training and testing, respectively.
 
 To select a subset of training feature vectors, run the following command. It creates a file named train_subset.tsv
 ```
-python3 subset.py -f train.tsv -s labels_subset.json -o train_subset.tsv
+python3 subset.py -f training.tsv -s labels_subset.json -o training_subset.tsv
 ```
 
 To select a subset of testing feature vectors, run the following command. It creates a file named test_subset.tsv
 ```
-python3 subset.py -f testing.tsv -s labels_subset.json -o test_subset.tsv
+python3 subset.py -f testing.tsv -s labels_subset.json -o testing_subset.tsv
 ```
