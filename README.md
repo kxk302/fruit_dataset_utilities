@@ -39,7 +39,7 @@ under Training to a unique integer ID, 2) training.csv, feature vectors file, wh
 100 X 100 X 3 values of image pixels (30,000 values), integer ID of fruit/vegetable label, fruit/vegetable label 
 (Name of fruit/vegetable folder), and the full image file path, for a total of 30003 columns
 ```
-python3 feature_vector.py -d Training -f traing.tsv -l labels.json
+python3 feature_vector.py -d Training -f training.tsv -l labels.json
 ```
 
 7. To create Test feature vectors, run the following command in 'fruit-360_dataset/fruit-360' folder. This
@@ -57,15 +57,37 @@ Create a labels_subset.json file by copy labels.json file. labels.json file spec
 Creating the feature vector for all images of 131 fruits/vegetables results in very large feature vector files 
 (7GB for training and 2.5 GB for testing). You can specify only the fruits/vegetables you are interested in 
 labels_subset.json, and run the following commands to extract feature vector for only those fruits/vegetables. 
-For the provided labels_subset.json, which includes 20 fruits/vegetables, file sizes dropped to 1.1 GB and 375 MB 
+For the provided labels_subset_10.json, which includes 10 fruits/vegetables, file sizes dropped to 500 MB and 177 MB
 for training and testing, respectively.
 
 To select a subset of training feature vectors, run the following command. It creates a file named train_subset.tsv
 ```
-python3 subset.py -f training.tsv -s labels_subset.json -o training_subset.tsv
+python3 subset.py -f training.tsv -s labels_subset_10.json -o training_subset_10.tsv
 ```
 
 To select a subset of testing feature vectors, run the following command. It creates a file named test_subset.tsv
 ```
-python3 subset.py -f testing.tsv -s labels_subset.json -o testing_subset.tsv
+python3 subset.py -f testing.tsv -s labels_subset_10.json -o testing_subset_10.tsv
+```
+
+# Create separate files for feature vectors and labels
+
+Run the following command to create training feature vector file
+```
+cut -f 1-30000 training_subset_10.tsv > train_X_10.tsv
+```
+
+Run the following command to create training labels file
+```
+cut -f 30001-30003 training_subset_10.tsv > train_y_10.tsv
+```
+
+Run the following command to create testing feature vector file
+```
+cut -f 1-30000 testing_subset_10.tsv > test_X_10.tsv
+```
+
+Run the following command to create testing labels file
+```
+cut -f 30001-30003 testing_subset_10.tsv > test_X_10.tsv
 ```
