@@ -94,10 +94,10 @@ cut -f 30001-30003 testing_subset_10.tsv > test_X_10.tsv
 
 # To map fruit labels to a 0 to 9 range
 
-There are 131 fruit labels in the original dataset. We have selected 10 of them. 
-The labels for these 10 are in the range of 0 to 130. Since we have selected only 
-10 fruits and vegetables, we would like the labels be in the range of 0 to 9. 
-This can be done via the map.py script as follows: 
+There are 131 fruits and vegetables in the original dataset. The integer ID
+of labels for those are in the range of 0 to 130. Since we have selected only
+10 fruits and vegetables, we want the integer ID of their labels to be in the
+range of 0 to 9. This can be done via the map.py script as follows:
 
 For training dataset, run the following command:
 ```
